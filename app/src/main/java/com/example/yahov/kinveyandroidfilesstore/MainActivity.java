@@ -57,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void KinveyLogin () throws IOException {
+        // Check if there is a User already logged in.
+        if (kinveyClient.isUserLoggedIn()) {
+            Toast.makeText(getApplicationContext(), "User already logged in!", Toast.LENGTH_LONG).show();
+            System.out.println("User: " + kinveyClient.getActiveUser().toString());
+            return;
+        }
+
         UserStore.login(kinveyUserName, kinveyUserPassword, kinveyClient, new KinveyClientCallback<User>() {
             @Override
             public void onFailure(Throwable t) {
