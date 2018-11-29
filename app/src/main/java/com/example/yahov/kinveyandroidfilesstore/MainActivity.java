@@ -22,6 +22,7 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
+    // TODO: Set the values below!
     private Client kinveyClient;
     private String kinveyAppKey = "xxx";
     private String kinveyAppSecret = "xxx";
