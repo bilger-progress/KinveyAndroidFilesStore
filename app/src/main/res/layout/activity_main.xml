@@ -24,4 +24,13 @@
         tools:layout_editor_absoluteX="31dp"
         tools:layout_editor_absoluteY="28dp" />
 
+    <Button
+        android:id="@+id/buttonKinveyUploadFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload File"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="120dp" />
+
 </android.support.constraint.ConstraintLayout>

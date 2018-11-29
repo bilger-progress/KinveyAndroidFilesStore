@@ -21,12 +21,15 @@ public class MainActivity extends AppCompatActivity {
     private String kinveyUserName = "xxx";
     private String kinveyUserPassword = "xxx";
     private Button kinveyLoginButton;
+    private Button kinveyUploadFileButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         kinveyLoginButton = findViewById(R.id.buttonKinveyLogin);
+        kinveyUploadFileButton = findViewById(R.id.buttonKinveyUploadFile);
 
         // Set-up the Kinvey Client.
         kinveyClient = new Client.Builder(kinveyAppKey, kinveyAppSecret, this).build();
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         if (kinveyClient.isUserLoggedIn()) {
             Toast.makeText(getApplicationContext(), "User already logged in!", Toast.LENGTH_LONG).show();
             System.out.println("User: " + kinveyClient.getActiveUser().toString());
+            kinveyUploadFileButton.setVisibility(View.VISIBLE);
             return;
         }
 
@@ -74,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(User u) {
                 Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_LONG).show();
                 System.out.println("User: " + u.toString());
+                kinveyUploadFileButton.setVisibility(View.VISIBLE);
             }
         });
     }
